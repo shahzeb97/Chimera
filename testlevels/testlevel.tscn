@@ -1,3 +1,41 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://testobj/Cube.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.77743, 0.19247, 2.00516 )
+
+[sub_resource type="CubeMesh" id=3]
 
 [node name="World" type="Spatial"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="."]
+physics_material_override = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 2.777, 0, 0, 0, 0.192, 0, 0, 0, 2.005, 0, 0, 0 )
+mesh = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265382, 2.22706, 3.02142 )
+current = true
+
+[node name="Cube" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.45799, 0 )
