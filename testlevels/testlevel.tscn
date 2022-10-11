@@ -39,3 +39,4 @@ current = true
 
 [node name="Cube" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.45799, 0 )
+angular_velocity = Vector3( 0, 23, 1 )
